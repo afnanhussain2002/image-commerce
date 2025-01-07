@@ -52,3 +52,6 @@ const orderSchema = new Schema({
     type:String
    }
 }, {timestamps:true})
+
+const Order = models?.Order || model("Order", orderSchema);
+
