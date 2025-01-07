@@ -45,4 +45,10 @@ const orderSchema = new Schema({
     enum:["pending","completed","failed"],
     default:"pending"
    },
+   downloadUrl:{
+    type:String
+   },
+   previewUrl:{
+    type:String
+   }
 })
