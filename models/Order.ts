@@ -55,3 +55,4 @@ const orderSchema = new Schema({
 
 const Order = models?.Order || model("Order", orderSchema);
 
+export default Order;
