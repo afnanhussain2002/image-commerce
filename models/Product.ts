@@ -17,3 +17,17 @@ const imageVariantSchema = new Schema({
     enum: ["personal", "commercial"],
   },
 });
+
+const productSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  variants: {
+    type: [imageVariantSchema],
+  },
+}, { timestamps: true });
