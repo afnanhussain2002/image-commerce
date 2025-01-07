@@ -31,3 +31,7 @@ const productSchema = new Schema({
     type: [imageVariantSchema],
   },
 }, { timestamps: true });
+
+const Product = models?.Product || model("Product", productSchema);
+
+export default Product;
