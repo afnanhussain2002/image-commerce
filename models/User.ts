@@ -10,7 +10,7 @@ export interface IUser {
     _id?: string;
 }
 
-const userSchema = new Schema(
+const userSchema = new Schema<IUser>(
   {
     email: { type: String, unique: true, required: true },
     password: { type: String, required: true },
@@ -19,6 +19,6 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
-const User = models?.User || model("User", userSchema);
+const User = models?.User || model<IUser>("User", userSchema);
 
 export default User;
