@@ -38,5 +38,11 @@ const orderSchema = new Schema({
    amount:{
     type:Number,
     required:true
-   }
+   },
+   status:{
+    type:String,
+    required:true,
+    enum:["pending","completed","failed"],
+    default:"pending"
+   },
 })
