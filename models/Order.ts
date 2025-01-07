@@ -51,4 +51,4 @@ const orderSchema = new Schema({
    previewUrl:{
     type:String
    }
-})
+}, {timestamps:true})
