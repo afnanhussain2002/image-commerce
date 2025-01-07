@@ -1,6 +1,15 @@
 import mongoose, { Schema, model, models } from "mongoose";
 import bcrypt from "bcryptjs";
 
+export interface IUser {
+    email: string;
+    password: string;
+    role: "user" | "admin";
+    createdAt?: Date;
+    updatedAt?: Date;
+    _id?: string;
+}
+
 const userSchema = new Schema(
   {
     email: { type: String, unique: true, required: true },
