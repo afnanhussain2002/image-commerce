@@ -26,5 +26,10 @@ const orderSchema = new Schema({
         required:true,
         enum:["personal","commercial"]
     }
-   }
+   },
+   razorpayOrderId:{
+    type:String,
+    required:true
+   },
+   
 })
