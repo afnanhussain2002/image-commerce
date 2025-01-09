@@ -38,6 +38,12 @@ export const authOptions: NextAuthOptions ={
                 if (!isValid) {
                     throw new Error("Invalid Password");
                 }
+
+                return {
+                    id: user._id.toString(),
+                    email: user.email,
+                    role: user.role
+                }
                } catch (error) {
                 console.error("Auth error",error);
                 throw error;
