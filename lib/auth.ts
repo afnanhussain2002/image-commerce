@@ -17,7 +17,9 @@ export const authOptions: NextAuthOptions ={
                 }
             },
             async authorize(credentials) {
-               return {id: 1, name:'admin', role: 'admin'}
+               if (!credentials?.email || !credentials?.password) {
+                throw new Error("Invalid credentials");
+               }
             }
         })
     ]
