@@ -73,5 +73,6 @@ export const authOptions: NextAuthOptions = {
   pages:{},
   session: {
     
-  }
+  },
+  secret: process.env.NEXT_AUTH_SECRET
 };
