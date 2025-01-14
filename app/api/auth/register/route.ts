@@ -8,6 +8,6 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ error: "email and password required" }, { status: 400 });
         }
     } catch (error) {
-        
+        console.log(error);
     }
 }
