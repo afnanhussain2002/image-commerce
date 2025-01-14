@@ -13,7 +13,10 @@ export async function POST(request: NextRequest) {
         await connectToDatabase();
 
         const existingUser = await User.findOne({ email });
-        
+
+        if (existingUser) {
+            return NextResponse.json({ error: "Email is already in use" }, { status: 400 });
+        }
     } catch (error) {
         console.log(error);
     }
