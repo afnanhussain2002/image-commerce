@@ -10,6 +10,8 @@ const imagekit = new ImageKit({
 export async function GET(request) {
 try {
     const authenticationParameters = imagekit.getAuthenticationParameters()
+
+    return NextResponse.json(authenticationParameters)
 } catch (error) {
     console.log("imagekit auth error", error);
 }
