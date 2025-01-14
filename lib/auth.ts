@@ -70,7 +70,10 @@ export const authOptions: NextAuthOptions = {
         return token;
     }
   },
-  pages:{},
+  pages:{
+    signIn: "/login",
+    error: "/login",
+  },
   session: {
     
   },
