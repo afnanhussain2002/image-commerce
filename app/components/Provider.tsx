@@ -24,7 +24,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   };
 
   return (
-  <SessionProvider>
+  <SessionProvider refetchInterval={5 * 60}>
       <ImageKitProvider
       urlEndpoint={urlEndpoint}
       publicKey={publicKey}
