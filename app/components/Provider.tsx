@@ -1,9 +1,8 @@
-"use client";
 import React from "react";
-import { ImageKitProvider, IKImage, IKUpload } from "imagekitio-next";
+import { ImageKitProvider, IKImage } from "imagekitio-next";
 
-const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
 const urlEndpoint = process.env.NEXT_PUBLIC_URL_ENDPOINT;
+const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
 const authenticator = async () => {
   try {
     const response = await fetch("http://localhost:3000/api/auth");
@@ -21,23 +20,11 @@ const authenticator = async () => {
   }
 };
 
-const onError = (err) => {
-  console.log("Error", err);
-};
-
-const onSuccess = (res) => {
-  console.log("Success", res);
-};
-
 export default function Home() {
   return (
     <div className="App">
-      <h1>ImageKit Next.js quick start</h1>
-      <ImageKitProvider publicKey={publicKey} urlEndpoint={urlEndpoint} authenticator={authenticator}>
-        <div>
-          <h2>File upload</h2>
-          <IKUpload fileName="test-upload.png" onError={onError} onSuccess={onSuccess} />
-        </div>
+      <ImageKitProvider urlEndpoint={urlEndpoint} publicKey={publicKey} authenticator={authenticator}>
+        {/* ...client side upload component goes here */}
       </ImageKitProvider>
       {/* ...other SDK components added previously */}
     </div>
