@@ -7,6 +7,10 @@ const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
 
 export default function Providers({ children }: { children: React.ReactNode }) {
      const authenticator = async () => {
-         
+         try {
+            
+         } catch (error) {
+            
+         }
      }
 }
