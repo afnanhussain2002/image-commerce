@@ -16,6 +16,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
               return response.json();
          } catch (error) {
              console.error("imagekit auth error", error);
+             throw error;
             
          }
      }
