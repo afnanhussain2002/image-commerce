@@ -13,6 +13,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
                 const errorText = await response.text();
                 throw new Error(`Request failed with status ${response.status}: ${errorText}`);
               }
+              return response.json();
          } catch (error) {
              console.error("imagekit auth error", error);
             
