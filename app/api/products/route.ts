@@ -29,7 +29,8 @@ export async function POST(request: Request) {
         }
 
         await connectToDatabase();
-        
+
+        const body = await request.json();
     } catch (error) {
         
     }
