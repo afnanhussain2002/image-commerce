@@ -30,7 +30,18 @@ export default function FileUpload({onSuccess}: {onSuccess: (response: IKUploadR
                 onError={onError}
                 onSuccess={handleSuccess}
                 onUploadStart={handleStartUpload}
+                validateFile={(file:File) =>{
+               const validTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp'];
+               if (!validTypes.includes(file.type)) {
+                setError('Invalid file type');
+                return false;
+               }
+               if (file.size > 5 * 1024 * 1024) {
+                setError('File size must be less than 5MB');
                 
+               }
+               return true;
+                }}
             />
             
         </div>
