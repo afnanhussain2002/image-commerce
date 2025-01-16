@@ -10,6 +10,8 @@ export async function GET() {
         if (!products || products.length === 0) {
             return NextResponse.json({ message: "No products found" }, { status: 404 });
         }
+
+        return NextResponse.json({ products }, { status: 200 });
     } catch (error) {
         
     }
