@@ -43,7 +43,7 @@ export default function FileUpload({onSuccess}: {onSuccess: (response: IKUploadR
                return true;
                 }}
             />
-            
+            {uploading && <p className="text-sm text-gray-500">Uploading...</p>}
         </div>
     )
 }
