@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { IKUpload } from "imagekitio-next";
 import { IKUploadResponse } from "imagekitio-next/dist/types/components/IKUpload/props";
+import { set } from "mongoose";
 
 export default function FileUpload({onSuccess}: {onSuccess: (response: IKUploadResponse) => void}) {
 
@@ -16,6 +17,10 @@ export default function FileUpload({onSuccess}: {onSuccess: (response: IKUploadR
     const handleSuccess = (response: IKUploadResponse) => {
         onSuccess(response);
         setUploading(false);
+        setError(null);
+    }
+    const handleStartUpload = () => {
+        setUploading(true);
         setError(null);
     }
     return (
