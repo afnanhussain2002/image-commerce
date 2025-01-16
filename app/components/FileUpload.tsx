@@ -44,6 +44,8 @@ export default function FileUpload({onSuccess}: {onSuccess: (response: IKUploadR
                 }}
             />
             {uploading && <p className="text-sm text-gray-500">Uploading...</p>}
+
+            {error && <p className="text-sm text-red-500">{error}</p>}
         </div>
     )
 }
