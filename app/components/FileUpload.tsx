@@ -24,6 +24,15 @@ export default function FileUpload({onSuccess}: {onSuccess: (response: IKUploadR
         setError(null);
     }
     return (
-        <div>FileUpload</div>
+        <div>
+            <IKUpload
+                fileName="product-image.png"
+                onError={onError}
+                onSuccess={handleSuccess}
+                onUploadStart={handleStartUpload}
+                
+            />
+            
+        </div>
     )
 }
