@@ -6,7 +6,7 @@ import { IKUploadResponse } from "imagekitio-next/dist/types/components/IKUpload
 export default function FileUpload() {
 
     const [uploading, setUploading] = useState(false);
-    
+    const [error, setError] = useState<string | null>(null);
     return (
         <div>FileUpload</div>
     )
