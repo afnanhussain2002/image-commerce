@@ -12,7 +12,11 @@ export default function FileUpload({onSuccess}: {onSuccess: (response: IKUploadR
 
         setError(error.message);
         setUploading(false);
-        
+    }
+    const handleSuccess = (response: IKUploadResponse) => {
+        onSuccess(response);
+        setUploading(false);
+        setError(null);
     }
     return (
         <div>FileUpload</div>
