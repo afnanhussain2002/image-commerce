@@ -1,6 +1,6 @@
 import { authOptions } from "@/lib/auth";
 import { connectToDatabase } from "@/lib/db";
-import Product from "@/models/Product";
+import Product, { IProduct } from "@/models/Product";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
 
         await connectToDatabase();
 
-        const body = await request.json();
+        const body: IProduct = await request.json();
     } catch (error) {
         
     }
