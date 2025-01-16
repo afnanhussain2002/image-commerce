@@ -7,6 +7,13 @@ export default function FileUpload() {
 
     const [uploading, setUploading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+
+    const onError = (error: {message:string}) => {
+
+        setError(error.message);
+        setUploading(false);
+        
+    }
     return (
         <div>FileUpload</div>
     )
