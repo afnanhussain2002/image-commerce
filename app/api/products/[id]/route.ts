@@ -12,7 +12,7 @@ export async function GET(request: NextRequest, props:{params: Promise<{id: stri
         if (!product) {
             return NextResponse.json({ message: "Product not found" }, { status: 404 });
         }
-        
+        return NextResponse.json({ product }, { status: 200 });
     } catch (error) {
         console.error("Error fetching single product:", error);
         return NextResponse.json({ error: "Failed to fetch single product" }, { status: 500 });
