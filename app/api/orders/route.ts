@@ -13,6 +13,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
     } catch (error) {
-        
+        console.error("Error creating order:", error);
+        return NextResponse.json({ error: "Failed to create order" }, { status: 500 });
     }
 }
