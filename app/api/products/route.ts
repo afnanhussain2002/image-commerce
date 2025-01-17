@@ -41,6 +41,10 @@ export async function POST(request: Request) {
         ) {
             return NextResponse.json({error:"All fields are required"}, {status:404})
         }
+
+        const newProduct = await Product.create(body);
+
+        return NextResponse.json({ product: newProduct }, { status: 201 });
     } catch (error) {
         
     }
