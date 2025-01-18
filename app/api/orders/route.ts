@@ -1,5 +1,6 @@
 import { authOptions } from "@/lib/auth";
 import { connectToDatabase } from "@/lib/db";
+import Order from "@/models/Order";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
@@ -34,6 +35,15 @@ export async function POST(request: Request) {
             success_url: "http://localhost:3000/success",
             cancel_url: "http://localhost:3000/cancel",
         });
+
+        const newOrder = await Order.create({
+            userId: session.user.id,
+            productId,
+            variant,
+            razorpayOrderId: order.id,
+            amount: Math.round(variant.price * 100),
+            status: "pending",
+        })
 
         return NextResponse.json({
             url: order.url
