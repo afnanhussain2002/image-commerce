@@ -20,6 +20,21 @@ export async function POST(request: Request) {
         }
 
         // create order with stripe
+        const order = await stripe.checkout.sessions.create({
+            line_items: [
+                {
+                    price: variant,
+                    quantity: 1,
+                },
+            ],
+            mode: "payment",
+            success_url: "http://localhost:3000/success",
+            cancel_url: "http://localhost:3000/cancel",
+        });
+
+        return NextResponse.json({
+            url: order.url
+        })
     } catch (error) {
         console.error("Error creating order:", error);
         return NextResponse.json({ error: "Failed to create order" }, { status: 500 });
