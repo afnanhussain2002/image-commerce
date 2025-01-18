@@ -18,6 +18,8 @@ export async function POST(request: Request) {
         if (!productId || !variant) {
             return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
         }
+
+        // create order with stripe
     } catch (error) {
         console.error("Error creating order:", error);
         return NextResponse.json({ error: "Failed to create order" }, { status: 500 });
