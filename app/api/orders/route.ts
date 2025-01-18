@@ -14,6 +14,10 @@ export async function POST(request: Request) {
         }
 
         const {productId, variant} = await request.json();
+
+        if (!productId || !variant) {
+            return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+        }
     } catch (error) {
         console.error("Error creating order:", error);
         return NextResponse.json({ error: "Failed to create order" }, { status: 500 });
