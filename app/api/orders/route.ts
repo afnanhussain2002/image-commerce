@@ -46,7 +46,10 @@ export async function POST(request: Request) {
         })
 
         return NextResponse.json({
-            url: order.url
+            orderId: order.id,
+            amount: order.amount_total,
+            currency: order.currency,
+            dbOrderId: newOrder._id
         })
     } catch (error) {
         console.error("Error creating order:", error);
