@@ -19,6 +19,8 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
         }
 
+        await connectToDatabase();
+
         // create order with stripe
         const order = await stripe.checkout.sessions.create({
             line_items: [
