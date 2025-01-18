@@ -12,6 +12,8 @@ export async function POST(request: Request) {
         if (!session) {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
+
+        const {productId, variant} = await request.json();
     } catch (error) {
         console.error("Error creating order:", error);
         return NextResponse.json({ error: "Failed to create order" }, { status: 500 });
