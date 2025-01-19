@@ -1,5 +1,6 @@
 import { authOptions } from "@/lib/auth";
 import { connectToDatabase } from "@/lib/db";
+import Order from "@/models/Order";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
@@ -12,6 +13,15 @@ export async function GET() {
         }
 
         await connectToDatabase();
+
+        await Order.find({ userId: session.user.id })
+            .populate({
+                path: "productId",
+                select: "name imageUrl",
+                options:{strictPopulate: false}
+            })
+            .sort({ createdAt: -1 })
+            .lean()
     } catch (error) {
         console.error("orders get error", error);
     }
