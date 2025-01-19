@@ -26,7 +26,7 @@ export async function GET() {
             if (!orders || orders.length === 0) {
                 return NextResponse.json({ message: "No orders found" }, { status: 404 });
             }
-            
+            return NextResponse.json({ orders }, { status: 200 });
     } catch (error) {
         console.error("orders get error", error);
     }
