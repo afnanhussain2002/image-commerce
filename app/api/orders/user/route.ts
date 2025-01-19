@@ -21,7 +21,12 @@ export async function GET() {
                 options:{strictPopulate: false}
             })
             .sort({ createdAt: -1 })
-            .lean()
+            .lean();
+
+            if (!orders || orders.length === 0) {
+                return NextResponse.json({ message: "No orders found" }, { status: 404 });
+            }
+            
     } catch (error) {
         console.error("orders get error", error);
     }
