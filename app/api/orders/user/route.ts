@@ -9,6 +9,8 @@ export async function GET() {
         if (!session) {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
+
+        await connectToDatabase();
     } catch (error) {
         console.error("orders get error", error);
     }
