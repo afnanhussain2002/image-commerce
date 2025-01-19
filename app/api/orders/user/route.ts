@@ -14,7 +14,7 @@ export async function GET() {
 
         await connectToDatabase();
 
-        await Order.find({ userId: session.user.id })
+      const orders = await Order.find({ userId: session.user.id })
             .populate({
                 path: "productId",
                 select: "name imageUrl",
