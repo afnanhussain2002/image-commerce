@@ -12,6 +12,9 @@ export async function POST(request: NextRequest) {
             return new Response('Invalid signature', { status: 400 });
             
         }
+
+        const event = JSON.parse(body);
+        
     } catch (error) {
         
     }
