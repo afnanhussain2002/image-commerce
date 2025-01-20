@@ -1,6 +1,7 @@
 import { NextRequest } from "next/server";
 import crypto from "crypto";
 import { connectToDatabase } from "@/lib/db";
+import Order from "@/models/Order";
 
 export async function POST(request: NextRequest) {
     try {
@@ -19,7 +20,9 @@ export async function POST(request: NextRequest) {
         await connectToDatabase();
 
         if (event.event === 'payment.captured') {
-            
+            const payment = event.payload.payment.entity;
+
+            const order = await Order.findByIdAndUpdate()
         }
     } catch (error) {
         
