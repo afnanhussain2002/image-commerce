@@ -22,7 +22,16 @@ export async function POST(request: NextRequest) {
         if (event.event === 'payment.captured') {
             const payment = event.payload.payment.entity;
 
-            const order = await Order.findByIdAndUpdate()
+            const order = await Order.findByIdAndUpdate(
+                {razorpayOrderId: payment.order_id},
+                {
+                    razorpayPaymentId: payment.id,
+                    status:"completed",
+                }
+            ).populate([
+                {path:"productId", select:"name"},
+                {path:"userId", select:"name"},
+            ])
         }
     } catch (error) {
         
