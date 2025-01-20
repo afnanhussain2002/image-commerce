@@ -17,6 +17,10 @@ export async function POST(request: NextRequest) {
         const event = JSON.parse(body);
 
         await connectToDatabase();
+
+        if (event.event === 'payment.captured') {
+            
+        }
     } catch (error) {
         
     }
