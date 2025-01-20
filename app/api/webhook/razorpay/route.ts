@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import crypto from "crypto";
+import { connectToDatabase } from "@/lib/db";
 
 export async function POST(request: NextRequest) {
     try {
@@ -14,7 +15,8 @@ export async function POST(request: NextRequest) {
         }
 
         const event = JSON.parse(body);
-        
+
+        await connectToDatabase();
     } catch (error) {
         
     }
